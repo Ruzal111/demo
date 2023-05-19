@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Где нас найти{% endblock %}
+
+{% block content %}
+<div class="kart">
+        <div>
+            <h2>Контактные данные</h2>
+            <p>Телефон: +7 914 721 77 55</p>
+            <p>Адресс: ул.Ленина 26, Альметьевск</p>
+            <p>Email: flower@mail.com</p>
+        </div>
+            <div style="margin-top: 50px;">
+            <h2>Мы на карте</h2>
+            <img style="width: 700px;" src="{% static 'map.jpg' %}">
+        </div>
+    </div>
+{% endblock %}

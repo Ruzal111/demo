@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Подтверждение{% endblock %}
+
+{% block content %}
+<div class="createorder toCenter">
+  <h2>Подтверждение</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сформировать заказ</button>
+</form>
+</div>
+
+{% endblock %}

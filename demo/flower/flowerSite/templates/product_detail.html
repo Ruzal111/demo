@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+<h3 style="text-align: center; font-size: 34px;">Описание товара</h3>
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <img style="wirth: 200px; height: 200px;" src="{{ product.image.url }}">
+    <h4 style="font-size: 24px;">{{ product.name }}</h4>
+    <p>Категория: {{ product.category }}</p>
+    <p>Цена: {{ product.price }} руб.</p>
+    <p>Производитель: {{ product.country }}</p>
+    <p>Цвет: {{ product.color }}</p>
+    <p>Количество: {{ product.amount }} шт.</p>
+</div>
+{% endblock %}

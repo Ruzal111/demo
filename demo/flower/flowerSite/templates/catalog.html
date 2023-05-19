@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+
+{% block content %}
+<h2 style="font-size: 28px;">Каталог</h2>
+<nav class="toleft">
+    <label>Упорядочить по:</label>
+    <a href="{% url 'catalog' order='country' filter=filter %}">Стране производителя</a>
+    <a href="{% url 'catalog' order='name' filter=filter %}">Наименованию</a>
+    <a href="{% url 'catalog' order='price' filter=filter %}">Цене</a>
+</nav>
+<nav class="toleft" style="margin-top: 5px;">
+    <label>Фильтровать по:</label>
+    <a href="{% url 'catalog' order=order filter=0 %}">Показать все</a>
+    {% for c in categories %}
+    <a href="{% url 'catalog' order=order filter=c.id %}">{{ c.name }}</a>
+    {% endfor %}
+</nav>
+<div class="outProducts outProd">
+    {% for p in products %}
+
+        <div class="product">
+            <a style="color: black; text-decoration: none;" href="{% url 'product_detail' p.id %}">
+            <div class="image"><img src="{{ p.image.url }}" alt="Image"></div>
+            <h3><label>Название: </label>{{ p.name }}</h3>
+            <h3><label>Цена: </label>{{ p.price }} руб.</h3>
+            <h3><label>В наличии: </label>{{ p.amount }} шт.</h3>
+            {% if user.is_authenticated %}
+            {% if p.cart %}
+            <h3><label>В корзине: </label>{{ p.cart }} шт.</h3>
+            {% endif %}
+            {% endif %}
+            </a>
+            {% if user.is_authenticated %}
+            <button class="add_to_cart" data-id="{{ p.id }}">В корзину</button>
+            {% endif %}
+        </div>
+
+
+
+    {% endfor %}
+</div>
+
+
+<script>
+    $(document).on('click', '.add_to_cart', e => { $obj = $(e.currentTarget);
+        $.get('/cart_add/' + $obj.data('id'), {}, res => { $obj.html(res)});
+        e.preventDefault();
+        return false;
+    });
+</script>
+{% endblock %}

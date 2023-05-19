@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Flowers{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'jquery-3.6.3.min.js' %}"></script>
+</head>
+<body>
+    <nav style="box-shadow: 0px 0.5px 10px 0.5px black;">
+        <div class="menu">
+            <img src="{% static 'logo.png' %}" alt="logo" width="55">
+            <a href="{% url 'home' %}">О нас</a>
+            <a href="{% url 'catalog' order='id' filter=0 %}">Каталог</a>
+            <a href="{% url 'where' %}">Где нас найти?</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'cart' %}">Корзина</a>
+            <a href="{% url 'orders' %}">Заказы</a>
+            {% if user.is_superuser %}
+            <a href="{% url 'admin:index' %}">Админпанель</a>
+            {% endif %}
+            {% endif %}
+        </div>
+        <div class="login_menu">
+            {% if user.is_authenticated %}
+            Здравствуйте, {{ user.first_name }} {{ user.last_name }}
+            <a href="{% url 'logout' %}" style="color: red;">Выйти</a>
+            {% else %}
+            <a class="reg" href="{% url 'registration' %}">Регистрация</a>|<a class="reg" href="{% url 'login' %}">Войти</a>
+            {% endif %}
+        </div>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

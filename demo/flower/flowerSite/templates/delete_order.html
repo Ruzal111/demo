@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Удаление заказа{% endblock %}
+
+{% block content %}
+    <h2>Удаление заказа</h2>
+
+    <div class="outProducts outProd">
+        <div>
+            <div class="product">
+                <h3><label>Дата:</label> {{ order.date_create }}</h3>
+                <h3><label>Статус:</label> {{ order.status }}</h3>
+                <h3><label>Количество:</label> {{ order.amount }} шт.</h3>
+            </div>
+        {% for p in order.products %}
+            <div class="orderproduct">
+                <div class="image"><img src="{{ p.product.image.url }}" alt="Image"></div>
+                <h3><label>Название:</label> {{ p.product.name }}</h3>
+                <h3><label>Цена:</label> {{ p.product.price }}</h3>
+                <h3><label>Количество:</label> {{ p.amount }} шт.</h3>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+        <nav>
+            <a style="color: red; text-decoration: none;" href="{% url 'delete_order_ok' order.id %}">Удалить заказ</a>
+        </nav>
+<script>
+</script>
+
+{% endblock %}

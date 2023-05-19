@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+}
+
+@font-face {font-family: "EkMukta"; font-style: normal; font-weight: normal;
+    src: url("fonts/EkMuktaMedium-7vBD.ttf") format("truetype");
+}
+
+nav {display: flex; justify-content: center; align-items: center; font-size: 1.5rem; background-color: white; padding: 10px; font-family: EkMukta;}
+nav .menu {display: flex; flex-grow: 1; align-items: center;}
+nav .menu > a, .login_menu > a {color: black; text-decoration: none; margin: 5px;}
+
+.menu > a:hover {
+    border-bottom: 1px solid black;
+}
+
+h2 {text-align: center;}
+.row {display: flex; justify-content: center;}
+.row img { margin-right: 50px;}
+
+.reg:hover {
+    color: #ccc;
+}
+
+form label {display: block; font-style: italic;}
+form {text-align: center;}
+.toCenter {width: 200px; margin-top: 100px; margin-left: 100px; margin-left: auto; margin-right: auto; padding: 5px 10px 20px 10px; border: 2px solid purple;}
+
+.carousel .product .image {min-width: 460px; min-height: 345px}
+.carousel .product .img {width: 400px; height: 400px; margin-right: 50px}
+.carousel .product {display: flex; justify-content: center; align-items: center}
+.carousel .item {display: none}
+
+.outProd {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 10px 50px;
+    color: black;
+}
+
+.order_do:hover {
+    box-shadow: 0.5px 0.5px 10px 0.5px green;
+}
+
+.outProd > a {
+    width: 400px;
+    text-decoration: none;
+}
+
+.add_to_cart {
+    width: 100px;
+    padding: 10px;
+    color: black;
+    background: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.add_to_cart:hover {
+    box-shadow: 1px 1px 10px 0.5px green;
+    border: 1px solid lime;
+}
+
+.sub_from_cart {
+    width: 100px;
+    padding: 10px;
+    color: black;
+    background: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.sub_from_cart:hover {
+    box-shadow: 1px 1px 10px 0.5px red;
+    border: 1px solid red;
+}
+
+.outProducts a:hover .product {box-shadow: 1px 1px 10px 0.5px black;}
+.product {display: flex; justify-content: space-around; flex-direction: column; align-items: center; border-radius: 15px; border: solid 2px black; margin-top: 50px; margin-bottom: 10px; padding: 10px 50px; width: 300px; color: black;}
+.outProducts .product .image {min-width: 100px; flex-grow: 1}
+.outProducts .product img {width: 200px; height: 200px; border-radius: 10px;}
+.outProducts .product img:hover {width: 300px; height: 300px; transition: 0.4s;}
+.outProducts .product h3 {flex-grow: 1}
+
+.outProduct {text-align: center;}
+
+.registration {width: 600px; margin-top: 50px; margin-left: auto; margin-right: auto;
+    padding: 5px 10px 20px 10px; border: 2px solid purple;}
+
+.registration .helptext {display: block; font-style: italic;}
+.registration p:last-of-type label {display: inline-block;}
+.registration form ul {font-style-type: none;}
+.errorlist {color: red; animation-duration: 1s; animation-name: erroranimation; animation-iteration-count: 5;}
+
+@keyframes erroranimation {
+    from {color: red;}
+    to {color: white; background-color: red;}
+}
+
+.errorinput {border-color: red;}
+
+.outProducts .orderproduct {display: flex; margin-top: 0px; padding: 10px 50px 10px 150px}
+.outProducts .orderproduct .image {min-width: 100px; flex-grow: 1}
+.outProducts .orderproduct img {width: 100px}
+.outProducts .orderproduct h3 {flex-grow: 1}
+
+.toleft {
+    display: flex;
+    justify-content: left;
+}
+.toleft > a {
+    color: black;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.toleft > a:hover {
+    color: #ccc;
+}
+
+.kart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
